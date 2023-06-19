@@ -1,25 +1,55 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <style>
+        body{
+            background-color: azure;
+        }
+        table{
+            border: solid 2px;
+            margin-left: 35%;
+        }
+        th{
+            
+            border: solid 1px;
+            padding-right: 100px;
+            padding-left: 8px;
+        }
+        td{
+            padding-top: 15px;
+            padding-left: 8px;
+        }
+    </style>
+    <title>Django-taskforce</title>
+</head>
 <body>
-
+<a href="http://127.0.0.1:8000/admin/"> <input type="button" value="admin"></a>
     <center><h1>BOOT CAMP 13 !</h1>
 <p> Welcome to The Django Taskforce!</p></center><hr>
 <div class="container">
-    <div class="table">
+    
+    <table>
+        <thead>
+            <tr>
+                <th>First name | </th>
+                <th>Last name |</th>
+                <th>course |</th>
+            </tr>
+        </thead>
+        <hr>
     {% for name in members %}
-    <div class="row">
-        <div class="com-lg-5 col-md-5 col-12">
-            {{name.fName}}
-        </div>
-        <div class="com-lg-5 col-md-5 col-12">
-            {{name.lName}}
-        </div>
-        <div class="com-lg-5 col-md-5 col-12">
-            {{name.course}}
-        </div>
-    </div>
+        <tbody>
+            <tr>
+                <td>{{name.fName}}</td>
+                <td>{{name.lName}}</td>
+                <td>{{name.course}}</td>
+                <br>
+            </tr>
+        </tbody>
     {% endfor %}
-    </div>
+    </table>
+    
+    
 </div>
 </body>
 </html>
