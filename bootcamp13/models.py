@@ -1,12 +1,11 @@
 from django.db import models
 
 # Create your models here.
-class Student(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    gender = models.CharField(max_length=10) 
-    email_address = models.EmailField()
-    phone_number = models.CharField(max_length=20)
+class BootcampMembers(models.Model):
+    fName = models.CharField(max_length=100)
+    lName = models.CharField(max_length=100)
+    course = models.CharField(max_length=100)
 
-    def __init__(self):
-       return self.first_name
+    def __str__(self):
+        return self.fName+''+ self.lName
+ 
