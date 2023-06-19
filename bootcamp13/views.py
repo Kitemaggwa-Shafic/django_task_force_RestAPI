@@ -24,5 +24,22 @@ def home(request):
 def all_students(request):
     members = BootcampMembers.objects.all()
     serializer = StudentSerializer(members, many = True)
-    return Response(serializer.data)
+    # this helps return the data back to the UI to see whats available in db
+    return Response(serializer.data, )
 
+# Update student function using pk constratint
+@api_view(['PUT'])
+def UpdateStudent(request, pk):
+    # This method retrieves a single instance of the student model with the given primary key pk.
+    student = BootcampMembers.objects.get(id=pk)
+    serializer = StudentSerializer(instance=student, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response("Student Updated Successfully !!!")
+
+# delete student rest funstion basing on pk
+@api_view(['DELETE'])
+def DeleteStudent(request, pk):
+    deletestudent = BootcampMembers.objects.get(id=pk)
+    deletestudent.delete()
+    return Response("Student deleted successfuly !!")
