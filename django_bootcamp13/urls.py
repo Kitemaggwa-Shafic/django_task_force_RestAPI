@@ -19,4 +19,6 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # Adding our path to the bootcamp13 urls to main project
+    path('', include('bootcamp13.urls')),
 ]
