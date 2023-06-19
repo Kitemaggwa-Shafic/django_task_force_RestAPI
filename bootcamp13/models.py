@@ -1,7 +1,6 @@
 from django.db import models
 
 # Create your models here.
-
 class BootcampMembers(models.Model):
     fName = models.CharField(max_length=100)
     lName = models.CharField(max_length=100)
@@ -9,3 +8,4 @@ class BootcampMembers(models.Model):
 
     def __str__(self):
         return self.fName+''+ self.lName
+ 
