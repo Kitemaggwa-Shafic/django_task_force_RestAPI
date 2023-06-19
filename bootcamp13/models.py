@@ -6,7 +6,6 @@ class Student(models.Model):
     last_name = models.CharField(max_length=50)
     gender = models.CharField(max_length=10) 
     email_address = models.EmailField()
-    phone_number = models.CharField(max_length=20)
 
     def __init__(self):
        return self.first_name
