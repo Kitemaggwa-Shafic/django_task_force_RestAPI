@@ -2,8 +2,24 @@
 <html>
 <body>
 
-<h1>BOOT CAMP 13 !</h1>
-<p>Welcome to The Django Taskforce!</p>
-
+    <center><h1>BOOT CAMP 13 !</h1>
+<p> Welcome to The Django Taskforce!</p></center><hr>
+<div class="container">
+    <div class="table">
+    {% for name in members %}
+    <div class="row">
+        <div class="com-lg-5 col-md-5 col-12">
+            {{name.fName}}
+        </div>
+        <div class="com-lg-5 col-md-5 col-12">
+            {{name.lName}}
+        </div>
+        <div class="com-lg-5 col-md-5 col-12">
+            {{name.course}}
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
 </body>
 </html>
