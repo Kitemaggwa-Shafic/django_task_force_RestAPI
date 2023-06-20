@@ -3,7 +3,7 @@
 <head>
     <style>
         body{
-            background-color: azure;
+            background-color: rgb(71, 207, 207);
         }
         table{
             border: solid 2px;
@@ -37,16 +37,16 @@
             </tr>
         </thead>
         <hr>
-    {% for name in members %}
+        {% for x in members %}
         <tbody>
             <tr>
-                <td>{{name.fName}}</td>
-                <td>{{name.lName}}</td>
-                <td>{{name.course}}</td>
+                <td>{{x.fName}}</td>
+                <td>{{x.lName}}</td>
+                <td>{{x.course}}</td>
                 <br>
             </tr>
         </tbody>
-    {% endfor %}
+        {% endfor %}
     </table>
     
     
