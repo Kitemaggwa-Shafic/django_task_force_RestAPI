@@ -8,13 +8,13 @@ from rest_framework.decorators import api_view
 
 
 # Create your views here.
-
 def home(request):
     members = BootcampMembers.objects.all()
     context = {
         'members':members
     }
     return render(request, 'home.html', context)
+
 
 #  Was proposing we change it function to return all students like this
 
@@ -25,7 +25,8 @@ def all_students(request):
     members = BootcampMembers.objects.all()
     serializer = StudentSerializer(members, many = True)
     # this helps return the data back to the UI to see whats available in db
-    return Response(serializer.data, )
+    return Response(serializer.data)
+
 
 # Update student function using pk constratint
 @api_view(['PUT'])
@@ -36,6 +37,7 @@ def UpdateStudent(request, pk):
     if serializer.is_valid():
         serializer.save()
     return Response("Student Updated Successfully !!!")
+
 
 # delete student rest funstion basing on pk
 @api_view(['DELETE'])
@@ -51,6 +53,5 @@ def new_student(request):
     serializer = StudentSerializer(data=request.data)
     # Checking if the data sent is valid be4 saving the data
     if serializer.is_valid():
-        #saves posted data if valid
         serializer.save()
     return Response(serializer.data)
