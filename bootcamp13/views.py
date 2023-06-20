@@ -43,3 +43,14 @@ def DeleteStudent(request, pk):
     deletestudent = BootcampMembers.objects.get(id=pk)
     deletestudent.delete()
     return Response("Student deleted successfuly !!")
+
+#  RESTAPI Function for creating new student
+@api_view(['POST'])
+def new_student(request):
+    # serializer variable gets data from StudentSerializer class and the pass data from the UI
+    serializer = StudentSerializer(data=request.data)
+    # Checking if the data sent is valid be4 saving the data
+    if serializer.is_valid():
+        #saves posted data if valid
+        serializer.save()
+    return Response(serializer.data)
