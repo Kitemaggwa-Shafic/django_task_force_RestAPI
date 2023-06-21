@@ -12,5 +12,5 @@ class BootcampMembers(models.Model):
     #3 phone_number = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.fName+''+ self.lName
+        return self.fName +' '+ self.lName
  
