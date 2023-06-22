@@ -7,7 +7,4 @@ urlpatterns = [
     path('update_student/<int:pk>/', views.UpdateStudent),
     path('delete_student/<int:pk>/', views.DeleteStudent),
     path('new_student/', views.new_student),
-    path('view_student/<int:pk>/', views.ViewStudent),
-     
- 
 ]
