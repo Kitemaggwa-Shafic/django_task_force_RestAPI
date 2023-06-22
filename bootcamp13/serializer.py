@@ -3,7 +3,15 @@ Serializers convert complex Django models to JSON objects, making data easy to r
 '''
 # import serializers module from the rest_framework package 
 from rest_framework import serializers
-from .models import BootcampMembers
+from .models import BootcampMembers, Course
+
+
+# class CourseSerializer inherits from ModelSerializer class from Django rest framework
+
+class CourseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Course
+        fields = '__all__'
 
 
 # class StudentSerializer inherits from ModelSerializer class from Django rest framework

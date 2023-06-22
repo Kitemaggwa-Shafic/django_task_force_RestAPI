@@ -79,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bootcamp',
-        'USER': 'Bruce.K',
-        'PASSWORD':'bruxifer',
+        'USER': 'profic',
+        'PASSWORD':'profic',
     }
 }
 

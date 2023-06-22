@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from .models import *
 
-from .serializer import StudentSerializer
+from .serializer import StudentSerializer, CourseSerializer
 from rest_framework.response import Response
 # The @api_view decorator shows a view function can handle HTTP GET requests.
 from rest_framework.decorators import api_view 
+
+from rest_framework import generics
+from rest_framework.views import APIView 
+from rest_framework import status
 
 # Create your views here.
 def home(request):
@@ -41,16 +45,22 @@ def DeleteStudent(request, pk):
     return Response("Student deleted successfuly !!")
 
 
-# Function for creating new student
-@api_view(["POST"])
-def new_student(request):
-    # serializer variable gets data from StudentSerializer class and the pass data from the UI
-    serializer = StudentSerializer(data=request.data)
-    # Checking if the data sent is valid be4 saving the data
-    if serializer.is_valid():
-        serializer.save()
-    return Response(serializer.data)
-
+# ListCreateAPIView automatically provides POST and GET requests to our class from generics
+# This will be betterto show relationship btn models
+class NewStudent(generics.ListCreateAPIView):
+     # quertset, selects all data of  the BootcampMembers model.
+    queryset = BootcampMembers.objects.all()
+    # serializer_class converts the query data to JSOn format which studentserlializer class will use
+    serializer_class = StudentSerializer
+        
+        
+# Course creation function
+@api_view(['POST'])
+def create_course(request):
+        serializer = CourseSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+        return Response("COurse Saved successfuly !!")
 
 # Function to return a student basing on id
 @api_view(["GET"])
