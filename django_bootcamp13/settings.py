@@ -12,6 +12,22 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
+import os
+import dj_database_url
+import environ
+
+
+
+
+env = environ.Env()
+environ.Env.read_env()
+
+
+
+
+
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,9 +39,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-idmh+go272*%odq3$5zg-4p=o0f%k9hh1(aj8*z5tfi@--v-bq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+# Change to false for cloud
+DEBUG = False
+
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -75,14 +93,28 @@ WSGI_APPLICATION = 'django_bootcamp13.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'bootcamp',
+#         'USER': 'profic',
+#         'PASSWORD':'profic',
+#     }
+# }
+
+
+# Config for cloud DB
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bootcamp',
-        'USER': 'profic',
-        'PASSWORD':'profic',
-    }
+    'default': dj_database_url.parse(env("DATABASE_URL"))
 }
+
+
+
+
+
+
 
 
 # Password validation
