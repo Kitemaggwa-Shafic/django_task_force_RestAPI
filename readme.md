@@ -13,13 +13,14 @@ In this project we shall be demostrating to students how to go about Django Inst
 ## Using the REST API
 1. This API has two models, course and student
 2. Configured locally to run at _http://127.0.0.1:8000_
-    - Creating a Course (_http://127.0.0.1:8000/new_course/_)
+    - Creating a Course (_.../new_course/_)
         - use format __{"courseName":"Python"}__ and POST
-    - Adding New Student (_http://127.0.0.1:8000/new_student/_)
-    - LIst of all studnets (_http://127.0.0.1:8000/all_students/_)
-    - Update Student (_http://127.0.0.1:8000/update_student/id_)
-    - Delete Student (_http://127.0.0.1:8000/delete_student/id_)
+    - Adding New Student (_.../new_student/_)
+    - LIst of all studnets (_.../all_students/_)
+    - Update Student (_.../update_student/id_)
+    - Delete Student (_.../delete_student/id_)
 ## Screen shots of API
+
 ![Alt text](C:\Users\dell\Pictures\Screenshots\Screenshot (173).png)
 
 ## Group Team Members:
